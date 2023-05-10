@@ -61,6 +61,29 @@ class SLinkedList:
             print("There are more Nodes between this and that node")
         
         self.printList()
+    
+    def RemoveNode(self,removekey):
+        Headval=self.headval
+        print(self.headval.dataval)
+        print(removekey)
+        if(self.headval.dataval==removekey):
+            self.headval=Headval.nextval
+            Headval=None
+            self.printList()
+            return
+        else:
+            print("Yet to work on this")
+            Headval=Headval.nextval
+            while Headval is not None:
+                if(Headval.dataval==removekey):
+                    break
+                prenoderef=Headval
+                Headval=Headval.nextval
+
+            prenoderef.nextval=Headval.nextval    
+            Headval=None
+            self.printList()
+            return
 
 def main():
     list1=SLinkedList()
@@ -74,7 +97,8 @@ def main():
 
     list1.printList()
     list1.InsertAtBegin("Sun")
-    list1.InsertInBetween("Mon","Wed","Holi")
+    list1.InsertInBetween("Mon","Tue","Holi")
+    list1.RemoveNode("Thurs")
 
 
 if __name__ == "__main__":
